@@ -7,7 +7,7 @@ use Doctrine\ORM\EntityManager;
 $isDevMode = true;
 $config = Setup::createAnnotationMetadataConfiguration(
     [
-        __DIR__ . "/app/Models"
+        __DIR__ . "/../Entities"
     ],
     $isDevMode
 );
