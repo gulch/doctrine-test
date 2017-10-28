@@ -1,0 +1,40 @@
+{
+    "name": "gulch/doctrine-test",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Volodymyr Gulchuk",
+            "email": "volodymyr@gulchuk.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1",
+        "doctrine/orm": "^2.5",
+        "monolog/monolog": "^1.23"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "exclude-from-classmap": [
+            "/Tests/",
+            "/test/",
+            "/tests/"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true
+    },
+    "require-dev": {
+        "fzaninotto/faker": "^1.7",
+        "robmorgan/phinx": "^0.9.1"
+    }
+}
