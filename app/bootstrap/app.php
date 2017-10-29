@@ -6,21 +6,28 @@ error_reporting(E_ALL);
 
 require __DIR__ . '/../../vendor/autoload.php';
 
+// bootstrap Config
+\App\Helpers\Config::bootstrap(__DIR__ . '/../../config');
+
+var_dump(config('database.host'));
+
+exit();
+
 // bootstrap Logger
 require __DIR__ . '/logger.php';
 
 // bootstrap Doctrine ORM
 require __DIR__ . '/database.php';
 
-$usersRepository = $entityManager->getRepository(App\Entities\User::class);
+/*$usersRepository = $entityManager->getRepository(App\Entities\User::class);
 $users = $usersRepository->findAll();
 
 foreach ($users as $user) {
     echo $user->show();
-}
+}*/
 
 // create new
-$newUser = new \App\Entities\User();
+/*$newUser = new \App\Entities\User();
 $newUser->create(
     'Vovan Kaban',
     'vovan@kaban.com',
@@ -29,4 +36,4 @@ $newUser->create(
 $entityManager->persist($newUser);
 $entityManager->flush();
 
-echo 'Created new User';
+echo 'Created new User';*/
