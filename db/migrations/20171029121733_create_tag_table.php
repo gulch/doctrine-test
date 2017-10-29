@@ -7,7 +7,7 @@ class CreateTagTable extends AbstractMigration
 {
     public function up()
     {
-        $table = $this->table('Tag');
+        $table = $this->table('Tag', ['signed' => false]);
         $table->addColumn('slug', 'string', ['limit' => 100])
             ->addColumn('title', 'string')
             ->addColumn('content', 'text')

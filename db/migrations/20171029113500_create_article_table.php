@@ -6,7 +6,7 @@ class CreateArticleTable extends AbstractMigration
 {
     public function up()
     {
-        $article = $this->table('Article');
+        $article = $this->table('Article', ['signed' => false]);
         $article->addColumn('slug', 'string', ['limit' => 100])
             ->addColumn('title', 'string')
             ->addColumn('content', 'text')

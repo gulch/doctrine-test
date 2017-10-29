@@ -2,10 +2,16 @@
 
 namespace App\Entities;
 
-/** @Entity @Table(name="User") **/
+/**
+ * @Entity
+ * @Table(name="User")
+ **/
 class User
 {
-    /** @Id @Column(type="integer") @GeneratedValue **/
+    /**
+     * @Id @Column(type="integer")
+     * @GeneratedValue
+     **/
     protected $id;
     /** @Column(type="string") **/
     protected $name;
