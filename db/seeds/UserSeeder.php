@@ -13,6 +13,7 @@ class UserSeeder extends AbstractSeed
             $data[] = [
                 'name' => $faker->name(),
                 'email' => $faker->email(),
+                'password' => password_hash($faker->password(), PASSWORD_DEFAULT),
             ];
         }
 

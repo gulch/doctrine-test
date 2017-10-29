@@ -14,8 +14,11 @@ $config = Setup::createAnnotationMetadataConfiguration(
 
 // database configuration parameters
 $connection = [
-    'driver' => 'pdo_sqlite',
-    'path' => __DIR__ . '/../../storage/db/doctrine-test.sqlite',
+    'driver' => config('database.driver'),
+    'host' => config('database.host'),
+    'user' => config('database.user'),
+    'password' => config('database.password'),
+    'dbname' => config('database.dbname'),
 ];
 
 // obtaining the entity manager

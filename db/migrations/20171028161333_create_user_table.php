@@ -8,8 +8,11 @@ class CreateUserTable extends AbstractMigration
     {
         $table = $this->table('User');
         $table->addColumn('name', 'string')
-            ->addColumn('email', 'string')
-            ->addColumn('created_at', 'timestamp')
+            ->addColumn('email', 'string', ['limit' => 100])
+            ->addColumn('password', 'string', ['limit' => 100])
+            ->addColumn('created_at', 'datetime', ['null' => false, 'default' => 'CURRENT_TIMESTAMP'])
+            ->addColumn('remember_token', 'string', ['limit' => 60, 'default' => ''])
+            ->addIndex('email', ['unique' => true])
             ->save();
     }
 
