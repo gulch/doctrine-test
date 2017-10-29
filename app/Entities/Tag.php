@@ -4,9 +4,9 @@ namespace App\Entities;
 
 /**
  * @Entity
- * @Table(name="Article")
+ * @Table(name="Tag")
  **/
-class Article
+class Tag
 {
     /**
      * @Id @Column(type="integer")
@@ -30,16 +30,6 @@ class Article
     private $content;
 
     /**
-     * @Column(type="integer")
-     **/
-    private $is_published;
-
-    /**
-     * @Column(type="string", nullable=true)
-     **/
-    private $social_image;
-
-    /**
      * @Column(type="string", nullable=true)
      **/
     private $seo_title;
@@ -60,23 +50,23 @@ class Article
     private $updated_at;
 
     /**
-     * Many Articles have Many Tags.
-     * @ManyToMany(targetEntity="App\Entities\Tag")
+     * Many Tags have Many Articles.
+     * @ManyToMany(targetEntity="App\Entities\Article")
      * @JoinTable(name="Article_Tag",
-     *      joinColumns={@JoinColumn(name="id__Article", referencedColumnName="id")},
-     *      inverseJoinColumns={@JoinColumn(name="id__Tag", referencedColumnName="id")}
+     *      joinColumns={@JoinColumn(name="id__Tag", referencedColumnName="id")},
+     *      inverseJoinColumns={@JoinColumn(name="id__Article", referencedColumnName="id")}
      *      )
      */
-    private $tags;
+    private $articles;
 
     public function __construct()
     {
         //
     }
 
-    public function getTags()
+    public function getArticles()
     {
-        return $this->tags;
+        return $this->articles;
     }
 
     public function show()

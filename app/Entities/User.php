@@ -12,24 +12,17 @@ class User
      * @Id @Column(type="integer")
      * @GeneratedValue
      **/
-    protected $id;
+    private $id;
+
     /** @Column(type="string") **/
-    protected $name;
+    private $name;
+
     /** @Column(type="string") **/
-    protected $email;
-    /** @Column(type="datetime") **/
-    protected $created_at;
+    private $email;
 
-    public function show()
-    {
-        return $this->id . ' | ' . $this->name . ' | ' . $this->email . "\n";
-    }
+    /** @Column(type="string") **/
+    private $password;
 
-    public function create(string $name, string $email, \DateTime $created_at): void
-    {
-        $this->name = $name;
-        $this->email = $email;
-        $this->created_at = $created_at;
-    }
-
+    /** @Column(type="datetime", nullable=true) **/
+    private $created_at;
 }

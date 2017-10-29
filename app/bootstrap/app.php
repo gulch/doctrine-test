@@ -2,19 +2,16 @@
 
 define('APP_START', microtime(true));
 
-error_reporting(E_ALL);
+// error_reporting(E_ALL);
 
 require __DIR__ . '/../../vendor/autoload.php';
 
-/* Register Dotenv */
+// register Dotenv
 $dotenv = new Dotenv\Dotenv(__DIR__ . '/../..');
 $dotenv->load();
 
 // bootstrap Config
 \App\Helpers\Config::bootstrap(__DIR__ . '/../../config');
-
-var_dump(config('database.host'));
-exit();
 
 // bootstrap Logger
 require __DIR__ . '/logger.php';
@@ -22,12 +19,16 @@ require __DIR__ . '/logger.php';
 // bootstrap Doctrine ORM
 require __DIR__ . '/database.php';
 
-/*$usersRepository = $entityManager->getRepository(App\Entities\User::class);
-$users = $usersRepository->findAll();
+$itemsRepository = $entityManager->getRepository(App\Entities\Article::class);
+$item = $itemsRepository->find(4);
 
-foreach ($users as $user) {
-    echo $user->show();
-}*/
+echo 'Articles: ' . "\n";
+var_dump($item->show());
+
+echo 'Tags: ' . "\n";
+foreach ($item->getTags() as $tag) {
+    var_dump($tag->show());
+}
 
 // create new
 /*$newUser = new \App\Entities\User();
@@ -39,4 +40,4 @@ $newUser->create(
 $entityManager->persist($newUser);
 $entityManager->flush();
 
-echo 'Created new User';*/
+echo 'new User was created';*/
