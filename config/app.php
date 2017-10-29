@@ -1,7 +1,6 @@
 <?php
 
 return [
-    'name' => 'Doctrine Test',
-    'environment' => 'production',
-    'url' => null,
+    'name'       => env('APP_NAME', 'My App'),
+    'debug'      => env('APP_DEBUG', false),
 ];
