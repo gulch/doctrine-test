@@ -3,3 +3,4 @@
 /storage/logs/
 /.env
 /phinx.yml
+/storage/cache/

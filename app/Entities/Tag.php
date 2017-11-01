@@ -2,6 +2,8 @@
 
 namespace App\Entities;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * @Entity
  * @Table(name="Tag")
@@ -61,7 +63,7 @@ class Tag
 
     public function __construct()
     {
-        //
+        $this->articles = new ArrayCollection;
     }
 
     public function getArticles()
